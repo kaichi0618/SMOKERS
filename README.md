@@ -1,4 +1,4 @@
-# <SMOKERS>
+# SMOKERS
 
 ## サイト概要
 
