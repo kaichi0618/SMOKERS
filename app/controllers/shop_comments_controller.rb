@@ -1,0 +1,2 @@
+class ShopCommentsController < ApplicationController
+end
