@@ -1,0 +1,63 @@
+<h2>gmap</h2>
+
+<input id="address" type="textbox" value="尼崎市">
+<input type="button" value="Encode" onclick="codeAddress()">
+<div id="display">何かが表示される、、、、！</div>
+
+<div id='map'></div>
+
+<style>
+#map {
+  height: 400px;
+}
+</style>
+
+<script>
+let map
+let geocoder
+const display = document.getElementById('display')
+
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+  map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: 34.7327113, lng:135.4057914},
+    zoom: 12,
+  });
+
+  marker = new google.maps.Marker({
+    position:  {lat: 34.7327113, lng:135.4057914},
+    map: map
+  });
+
+  <% maps.each do |m| %>
+    (function(){
+    var contentString = "住所：<%= m.address %>";
+
+    var marker = new google.maps.Marker({
+        position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
+        map: map,
+        title: contentString
+    });
+
+    })();
+  <% end %>
+}
+
+function codeAddress(){
+  let inputAddress = document.getElementById('address').value;
+
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    if (status == 'OK') {
+      map.setCenter(results[0].geometry.location);
+      var marker = new google.maps.Marker({
+          map: map,
+          position: results[0].geometry.location
+      });
+      display.textContent = "検索結果：" + results[ 0 ].geometry.location
+    } else {
+      alert('該当する結果がありませんでした：' + status);
+    }
+  });
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGYBaT3zzRmJaRxYGOb8M8WLFTOPGSaQc&callback=initMap" async defer></script>

@@ -1,2 +1,7 @@
-<h1>Shops#index</h1>
-<p>Find me in app/views/shops/index.html.erb</p>
+<% @shops.each do |shop| %>
+  <%= attachment_image_tag(shop, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %>
+  <%= shop.shop_name %>
+  <%= shop.address %>
+  <%= link_to "詳細", shop_path(shop.id) %>
+  <%= link_to "削除", shop_path(shop.id), method: :delete, remote: true, class: "btn btn-danger" %>
+<% end %>

@@ -4,4 +4,6 @@ class Shop < ApplicationRecord
   has_many :favorites, dependent: :destroy
   belongs_to :user
   belongs_to :genre
+  geocoded_by :address
+  after_validation :geocode
 end
