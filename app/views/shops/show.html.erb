@@ -1,12 +1,14 @@
 <h1>投稿詳細</h1>
 <%= link_to user_path(@shop.user) do %>
   <%= attachment_image_tag(@shop.user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg") %><br>
-  <%= @shop.user.name %>
+  <%= @shop.user.nickname %>
 <% end %>
 <%= attachment_image_tag(@shop, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %>
-<%= @shop.name %>
+<%= @shop.shop_name %>
 <%= @shop.body %>
 <%= @shop.address %>
-<%= @shop.genre %>
+<%= @shop.genre.genre_name %>
 <%= @shop.smoke_type %>
+<%= link_to "編集", edit_shop_path(@shop.id) %>
+<%= link_to "削除", shop_path(@shop.id), method: :delete, remote: true %>
 

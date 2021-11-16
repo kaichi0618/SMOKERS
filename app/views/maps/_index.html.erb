@@ -2,7 +2,7 @@
 
 <input id="address" type="textbox" value="尼崎市">
 <input type="button" value="Encode" onclick="codeAddress()">
-<div id="display">何かが表示される、、、、！</div>
+<div id="display"></div>
 
 <div id='map'></div>
 
@@ -37,6 +37,14 @@ function initMap(){
         position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
         map: map,
         title: contentString
+    });
+    //マーカーをクリックしたとき、詳細情報を表示
+    let infowindow = new google.maps.InfoWindow({
+      position: {lat: <%= m.latitude %>, lng: <%= m.longitude %>},
+      content: "<a href='<%= shop_path(m.id) %>' target='_blank'><%= m.shop_name %></a>"
+    }); //ここで詳細ページへのリンクを表示させる
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
     });
 
     })();

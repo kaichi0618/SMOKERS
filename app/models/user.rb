@@ -7,4 +7,11 @@ class User < ApplicationRecord
   has_many :shop_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
   attachment :profile_image, destroy: false
+
+  validates :last_name, presence: true, length: { maximum: 50 }
+  validates :first_name, presence: true, length: { maximum: 50 }
+  validates :nickname, presence: true, length: { maximum: 50 }
+
+
+
 end

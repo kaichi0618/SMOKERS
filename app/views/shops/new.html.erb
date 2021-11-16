@@ -1,25 +1,17 @@
 <%= render 'maps/index', maps:@shops %>
 <h1>新規投稿</h1>
 <%= form_with model:@shop_new,local:true do |f| %>
-<%= f.label :"画像" %>
-<%= f.attachment_field :image %>
-<%= f.label :"住所" %>
-<%= f.text_field :address %>
-<%= f.label :"店名" %>
-<%= f.text_field :shop_name %>
-<%= f.label :ジャンル名 %>
-<%= f.collection_select :genre_id, Genre.all, :id, :genre_name, prompt: "選択してください" %>
-<%= f.label :"喫煙タイプ" %>
-<%= f.text_field :smoke_type %>
-<%= f.label :"投稿内容" %>
-<%= f.text_field :body %>
-<%= f.submit "投稿" %>
-<% end %>
-
-<% @shops.each do |shop| %>
-  <%= attachment_image_tag(shop, :image, :fill, 100, 100, fallback: "no-image-icon.jpg") %>
-  <%= shop.shop_name %>
-  <%= shop.address %>
-  <%= link_to "詳細", shop_path(shop.id) %>
-  <%= link_to "削除", shop_path(shop.id), method: :delete, remote: true, class: "btn btn-danger" %>
+  <%= f.label :"画像" %>
+  <%= f.attachment_field :image %>
+  <%= f.label :"住所" %>
+  <%= f.text_field :address %>
+  <%= f.label :"店名" %>
+  <%= f.text_field :shop_name %>
+  <%= f.label :ジャンル名 %>
+  <%= f.collection_select :genre_id, Genre.all, :id, :genre_name, prompt: "選択してください" %>
+  <%= f.label :"喫煙タイプ" %>
+  <%= f.text_field :smoke_type %>
+  <%= f.label :"投稿内容" %>
+  <%= f.text_field :body %>
+  <%= f.submit "投稿" %>
 <% end %>

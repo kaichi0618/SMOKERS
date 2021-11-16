@@ -1,3 +1,3 @@
 class ShopComment < ApplicationRecord
-  belongs_to :shop_comment
+  belongs_to :shop
 end
