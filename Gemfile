@@ -69,6 +69,9 @@ gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'acts-as-taggable-on'
-gem 'dotenv-rails'
 gem 'pry-byebug'
 gem 'geocoder'
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
