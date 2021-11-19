@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   patch 'users/unsubscribe' => 'users#unsubscribe'
 
   resources :shops do
-    resource :shop_comments, only: [:create, :destroy]
+    resources :shop_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
 

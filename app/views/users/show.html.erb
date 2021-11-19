@@ -1,2 +1,12 @@
-<h1>マイページ</h1>
-
+<div class="user_info text-center mt-5">
+  <div class="d-inline-block"><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no-image-icon.jpg", class:"rounded-circle mb-5"; %></div>
+  <div class="d-inline-block">
+    <h4 class="d-inline-block"><%= @user.nickname %></h4>
+    <div class="d-inline-block ml-2"><%= link_to "変更", edit_user_path(current_user), class: "btn btn-outline-dark btn-sm mb-2" %></div>
+    <div class="d-flex justify-content-start">
+      <div class="ml-3">投稿: <%= current_user.shops.count %>件</div>
+      <div class="ml-3">いいね: <%= current_user.favorites.count %>件</div>
+    </div>
+  </div>
+</div>
+<%= render 'shops/index', shops:@shops %>

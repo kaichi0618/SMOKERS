@@ -1,5 +1,5 @@
 <div class="card-list-container py-5">
-  <% @shops.each do |shop| %>
+  <% shops.each do |shop| %>
   <div class="card w-50 mx-auto mt-4 shadow-lg">
     <%= link_to shop_path(shop.id)  do %>
       <%= attachment_image_tag shop, :image, fallback: "no-image-icon.jpg", class:"card-img-top"; %>
