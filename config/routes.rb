@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   get 'home/about' => 'homes#about'
   resources :maps, only: [:index]
 
-  resources :users, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update] do
+    member do
+      get :favorites
+    end
+  end
   get 'users/confirm' => 'users#confirm'
   patch 'users/unsubscribe' => 'users#unsubscribe'
 
