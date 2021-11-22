@@ -14,3 +14,8 @@
  *= require_self
  */
  @import "bootstrap";
+
+header {
+  background-color: #EEEEEE;
+  box-shadow: 0 3px 0 0 rgba(0,0,0,.1);
+}

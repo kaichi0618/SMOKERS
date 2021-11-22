@@ -1,14 +1,12 @@
-<h2>gmap</h2>
-
-<input id="address" type="textbox" value="尼崎市">
-<input type="button" value="Encode" onclick="codeAddress()">
-<div id="display"></div>
-
+<div class="d-flex justify-content-end m-2">
+  <input id="address" type="textbox" placeholder="場所を探す">
+  <input type="button" value="検索" onclick="codeAddress()">
+</div>
 <div id='map'></div>
 
 <style>
 #map {
-  height: 400px;
+  height: 85vh;
 }
 </style>
 
@@ -68,4 +66,4 @@ function codeAddress(){
   });
 }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGYBaT3zzRmJaRxYGOb8M8WLFTOPGSaQc&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['GOOGLE_MAPS_API_KEY']%>&callback=initMap" async defer></script>

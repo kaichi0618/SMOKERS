@@ -1,17 +1,43 @@
-<%= render 'maps/index', maps:@shops %>
-<h1>新規投稿</h1>
-<%= form_with model:@shop_new,local:true do |f| %>
-  <%= f.label :"画像" %>
-  <%= f.attachment_field :image %>
-  <%= f.label :"住所" %>
-  <%= f.text_field :address %>
-  <%= f.label :"店名" %>
-  <%= f.text_field :shop_name %>
-  <%= f.label :ジャンル名 %>
-  <%= f.collection_select :genre_id, Genre.all, :id, :genre_name, prompt: "選択してください" %>
-  <%= f.label :"喫煙タイプ" %>
-  <%= f.text_field :smoke_type %>
-  <%= f.label :"投稿内容" %>
-  <%= f.text_field :body %>
-  <%= f.submit "投稿" %>
-<% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <h5 class="text-center mt-4">投稿してみよう！</h5>
+      <%= form_with model:@shop_new,local:true do |f| %>
+        <div class="form-group">
+          <div class=""><%= f.label :"画像" %></div>
+          <div><%= f.attachment_field :image %></div>
+        </div>
+        <div class="form-group">
+          <div><%= f.label :"住所" %></div>
+          <div><%= f.text_field :address, class:"form-control" %></div>
+        </div>
+        <div class="form-group">
+          <div><%= f.label :"店名" %></div>
+          <div><%= f.text_field :shop_name, class:"form-control" %></div>
+        </div>
+        <div class="form-group">
+          <div><%= f.label :"お店のタイプ" %></div>
+          <div><%= f.collection_select :genre_id, Genre.all, :id, :genre_name, prompt: "選択してください" %></div>
+        </div>
+        <div class="form-group">
+          <div class=""><%= f.label :"喫煙" %></div>
+          <div><%= f.select :smoke_type, [["全席喫煙可", "全席喫煙可"], ["分煙", "分煙"], ["電子のみ", "電子のみ"], ["喫煙所あり", "喫煙所あり"]], include_blank: "選択して下さい" %></div>
+        </div>
+        <div class="form-group">
+          <div class=""><%= f.label :"投稿内容" %></div>
+          <div><%= f.text_area :body, rows:"4", class:"form-control" %></div>
+        </div>
+        <div class="form-group">
+          <div class=""><%= f.label :"タグ" %></div>
+          <div><%= f.text_field :tag_list, value: @shop_new.tag_list.join(','), class:"form-control" %></div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-outline-primary"><i class="fas fa-pencil-alt">投稿</i></button>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-8 pr-0">
+      <%= render 'maps/index', maps:@shops %>
+    </div>
+  </div>
+</div>

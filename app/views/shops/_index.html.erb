@@ -15,9 +15,16 @@
               <strong><i class="far fa-flag"></i><span> <%= shop.shop_name %></span></strong>
             <% end %>
           </p>
-          <p class="card-text">説明：<%= shop.body %></p>
+          <p class="card-text"><%= shop.body %></p>
           <span><i class="fas fa-user"></i> By <%= shop.user.nickname %> ｜ </span>
-          <span><%= link_to "#{shop.shop_comments.count} コメント", shop_path(shop.id), class:"text-dark" %></span>
+          <span id="favorite-btn_<%= shop.id %>">
+            <%= render partial: 'favorites/favorite-btn', locals: { shop: shop} %>
+          </span>
+          <span>
+            <%= link_to shop_path(shop.id), class:"text-dark" do %>
+                <i class="far fa-comments ml-2"></i>コメント<%= shop.shop_comments.count %>
+            <% end %>
+          </span>
         </div>
       </div>
     </div>

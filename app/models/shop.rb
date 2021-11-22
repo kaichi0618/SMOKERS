@@ -1,4 +1,5 @@
 class Shop < ApplicationRecord
+  acts_as_taggable
   attachment :image
   has_many :shop_comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
