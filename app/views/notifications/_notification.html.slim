@@ -19,7 +19,7 @@
           span
             = link_to shop_path(notification.shop) do
               strong
-                = notification.post.user.nickname + 'さんの投稿'
+                = notification.shop.user.nickname + 'さんの投稿'
         = "にコメントしました"
         p.text-muted.mb-0
           = ShopComment.find_by(id: notification.shop_comment_id)&.comment

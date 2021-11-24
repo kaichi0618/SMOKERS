@@ -43,7 +43,7 @@
       <%= render partial: 'shop_comments/index', locals: { shop: @shop } %>
     </div>
     <div class="my-4">
-      <%= form_with(model:[@shop, @shop_comment], remote: true) do |f| %>
+      <%= form_with(model:[@shop, @shop_comment], local: true) do |f| %>
         <%= f.text_area :comment, rows:'4',placeholder: "コメントをしよう！" %>
         <button type="submit" class="btn btn-outline-primary">
           <i class="far fa-paper-plane">送信</i>

@@ -1,0 +1,14 @@
+<% #unchecked_notifications %>
+<% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+<% if notifications.exists? %>
+  $('#panel-3').html("<%= j(render notifications)%>")
+<% else %>
+  $('#panel-3').html("<p>| 通知はありません</p>")
+<% end %>
+<%
+  notifications = current_user.passive_notifications
+  notifications.where(checked: false).each do |notification|
+    notification.update_attributes(checked: true)
+  end
+%>
+$('#bellmark').html('<i class="far fa-bell fa-2x"></i><p class="mb-0">通知</p>')

@@ -21,4 +21,5 @@ header {
   position: sticky;/*固定する*/
   position: -webkit-sticky;
   top: 0;
+  z-index: 999;
 }

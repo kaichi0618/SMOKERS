@@ -16,7 +16,6 @@
 
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require_tree .
 
 //= require jquery
@@ -32,8 +31,30 @@ $(document).ready(function() {
             $(this).removeClass('active');              //console.log(this);
 
             $('#'+paneltoshow).delay('100').slideDown(function () {
-              $(this).addClass('active');           //console.log(this);
+              $(this).addClass('active');
+              if(paneltoshow=='panel-3'){
+                notifications_read();
+              }
+              else{
+                $('#panel-3').html('')
+              }
+              //console.log(this);
             });
           });
   });
 });
+
+function notifications_read(){
+$.ajax({
+　url: '/notifications',　//URLまたはディレクトリを記載
+　type: 'get',
+　dataType: 'script',
+
+})
+　.done(function(data){ // 通信が成功したときの処理
+　})
+　.fail(function(data){ // 通信が失敗したときの処理
+　})
+　.always(function(data){ //通信の成否にかかわらず実行する処理
+});
+}

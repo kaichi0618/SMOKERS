@@ -1,10 +1,10 @@
 <% if shop.favorited_by?(current_user) %>
-    <%= link_to shop_favorites_path(shop), method: :delete, remote: true do %>
+    <%= link_to shop_favorites_path(shop), method: :delete do %>
       ❤
     <% end %>
     ️️いいね <%= shop.favorites.count %>
 <% else %>
-    <%=link_to shop_favorites_path(shop), method: :post, remote: true do %>
+    <%=link_to shop_favorites_path(shop), method: :post do %>
       🤍
     <% end %>
     いいね <%= shop.favorites.count %>

@@ -25,7 +25,7 @@
       <p class="mb-0">いいね</p>
     </li>
     <% if @user == current_user %>
-      <li rel="panel-3">
+      <li id="bellmark" rel="panel-3">
         <% if unchecked_notifications.any? %>
           <span class="fa-stack">
             <i class="far fa-bell far-lg fa-stack-2x"></i>
@@ -38,8 +38,18 @@
       </li>
     <% end %>
   </ul>
+
+  <div id="panel-1" class="panel active"><%= render 'shops/index', shops:@shops %></div>
+  <div id="panel-2" class="panel"><%= render "shops/index", shops:@favorite_shops %></div>
+  <div id="panel-3" class="panel">
+    <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
+    <% if notifications.exists? %>
+      <%= render notifications %>
+    <% else %>
+      <p>
+        | 通知ありません
+      </p>
+    <% end %>
+  </div>
 </div>
-<div id="panel-1" class="panel active"><%= render 'shops/index', shops:@shops %></div>
-<div id="panel-2" class="panel"><%= render "shops/index", shops:@favorite_shops %></div>
-<div id="panel-3" class="panel"><%= render "shops/index", shops:@favorite_shops %></div>
 
