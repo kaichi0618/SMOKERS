@@ -1,0 +1,29 @@
+- visitor = notification.visitor
+- visited = notification.visited
+.col-md-6.mx-auto
+  .form-inline
+    span
+      = link_to user_path(visitor) do
+        strong
+          = visitor.nickname
+      = 'さんが'
+
+      - case notification.action
+      - when 'favorite' then
+        = link_to 'あなたの投稿', notification.shop, style: "font-weight: bold;"
+        = "にいいねしました"
+      - when 'shop_comment' then
+        - if notification.shop.user_id == visited.id
+          = link_to "あなたの投稿", notification.shop, style: "font-weight: bold;"
+        - else
+          span
+            = link_to shop_path(notification.shop) do
+              strong
+                = notification.post.user.nickname + 'さんの投稿'
+        = "にコメントしました"
+        p.text-muted.mb-0
+          = ShopComment.find_by(id: notification.shop_comment_id)&.comment
+
+  .small.text-muted.text-right
+    = time_ago_in_words(notification.created_at).upcase
+  hr

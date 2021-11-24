@@ -14,15 +14,32 @@
     </div>
   </div>
 </div>
-<ul class="nav justify-content-center">
-  <li class="nav-item">
-     <%= link_to "いいね一覧", favorites_user_path(@user), class:"nav-link active" %>
-  </li>
-  <li>
-    <%= link_to "自分の投稿一覧", user_path(@user), class:"nav-link active" %>
-  </li>
-  <li>
-    <a class="nav-link active">通知</a>
+<div class="tab-panels">
+  <ul class="tabs d-flex justify-content-center">
+    <li rel="panel-1" class="active　d-flex justify-content-center">
+      <i class="fas fa-map-marker-alt fa-2x"></i>
+      <p class="mb-0">投稿</p>
     </li>
-</ul>
-<%= render 'shops/index', shops:@shops %>
+    <li rel="panel-2">
+      <i class="fas fa-heart fa-2x"></i>
+      <p class="mb-0">いいね</p>
+    </li>
+    <% if @user == current_user %>
+      <li rel="panel-3">
+        <% if unchecked_notifications.any? %>
+          <span class="fa-stack">
+            <i class="far fa-bell far-lg fa-stack-2x"></i>
+            <i class="fas fa-circle n-circle fa-stack-1x"></i>
+          </span>
+        <% else %>
+          <i class="far fa-bell fa-2x"></i>
+          <p class="mb-0">通知</p>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+<div id="panel-1" class="panel active"><%= render 'shops/index', shops:@shops %></div>
+<div id="panel-2" class="panel"><%= render "shops/index", shops:@favorite_shops %></div>
+<div id="panel-3" class="panel"><%= render "shops/index", shops:@favorite_shops %></div>
+

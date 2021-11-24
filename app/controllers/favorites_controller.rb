@@ -4,6 +4,7 @@ class FavoritesController < ApplicationController
     @shop = Shop.find(params[:shop_id])
     favorite = current_user.favorites.new(shop_id: @shop.id)
     favorite.save
+    @shop.create_notification_favorite!(current_user)
     redirect_back(fallback_location: root_path)
   end
 

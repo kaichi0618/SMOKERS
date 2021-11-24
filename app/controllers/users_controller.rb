@@ -4,6 +4,8 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @shops = @user.shops
+    favorites = Favorite.where(user_id: @user.id).pluck(:shop_id)
+    @favorite_shops = Shop.find(favorites)
   end
 
   def edit

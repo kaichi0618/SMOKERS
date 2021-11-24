@@ -74,6 +74,7 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'geocoder'
 gem 'dotenv-rails'
+gem 'slim-rails'
 group :production do
   gem 'mysql2'
 end

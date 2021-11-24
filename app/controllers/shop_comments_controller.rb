@@ -6,6 +6,7 @@ class ShopCommentsController < ApplicationController
     @comment.shop_id = @shop.id
     @comment.user_id = current_user.id
     @comment.save
+    @shop.create_notification_shop_comment!(current_user, @comment.id)
     redirect_to shop_path(@shop.id)
   end
 
