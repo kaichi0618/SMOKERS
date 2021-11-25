@@ -24,6 +24,7 @@
               <li><%= link_to ' Home',new_shop_path,class: 'fas fa-home nav-link text-dark' %></li>
               <li><%= link_to ' My page',user_path(current_user),class: 'fas fa-users nav-link text-dark' %></li>
               <li><%= link_to ' Shops',shops_path ,class: 'fas fa-book-open nav-link text-dark'%></li>
+              <li><%= link_to ' Genres',genres_path ,class: 'fas fa-city nav-link text-dark'%></li>
               <li><%= link_to ' logout', destroy_user_session_path, method: :delete,class: 'fas fa-sign-out-alt nav-link text-dark' %></li>
             <% else %>
               <li><%= link_to ' Home',root_path,class: 'fas fa-home nav-link text-dark' %></li>

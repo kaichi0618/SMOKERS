@@ -1,0 +1,30 @@
+<div class="container-fruid">
+  <div class="row">
+    <div class="shop_index col-md-4">
+      <div class="tab-panels">
+        <ul class="tabs">
+          <li rel="panel-4" class="active">喫茶店</li>
+          <li rel="panel-5">カフェ</li>
+          <li rel="panel-6">バー</li>
+          <li rel="panel-7">居酒屋</li>
+        </ul>
+
+        <div id="panel-4" class="panel active">
+          <%= render "shops/index", shops: @genre_coffees %>
+        </div>
+        <div id="panel-5" class="panel">
+          <%= render "shops/index", shops: @genre_cafes %>
+        </div>
+        <div id="panel-6" class="panel">
+          <%= render "shops/index", shops: @genre_bars %>
+        </div>
+        <div id="panel-7" class="panel">
+          <%= render "shops/index", shops: @genre_izakayas %>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8 px-0">
+      <%= render 'maps/index', maps:@genre_coffees %>
+    </div>
+  </div>
+</div>

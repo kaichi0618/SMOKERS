@@ -3,7 +3,7 @@
 <% if notifications.exists? %>
   $('#panel-3').html("<%= j(render notifications)%>")
 <% else %>
-  $('#panel-3').html("<p>| 通知はありません</p>")
+  $('#panel-3').html("<p>通知はありません</p>")
 <% end %>
 <%
   notifications = current_user.passive_notifications

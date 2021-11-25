@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   end
 
   resources :notifications, only: :index
+  resources :genres, only: [:index]
 
 end
