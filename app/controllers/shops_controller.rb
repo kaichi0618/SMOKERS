@@ -1,17 +1,18 @@
 class ShopsController < ApplicationController
   def new
     @shop_new = Shop.new
+    @shop = Shop.new
     @shops = Shop.all
   end
 
   def create
     @shop = Shop.new(shop_params)
     @shop.user_id = current_user.id
+    @shops = Shop.all
+    @shop_new = Shop.new
     if @shop.save
       redirect_to shop_path(@shop.id), notice: "You have created book successfully."
     else
-      @shops = Shop.all
-      @shop_new = Shop.new
       render "new"
     end
 

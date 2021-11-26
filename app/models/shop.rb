@@ -9,15 +9,13 @@ class Shop < ApplicationRecord
   after_validation :geocode
   # 通知モデル
   has_many :notifications, dependent: :destroy
-  
+
   validates :user_id, presence: true
   validates :image, presence: true
   validates :shop_name, presence: true, length: { maximum: 30 }
   validates :body, presence: true
   validates :smoke_type, presence: true
-  validates :genre_id, presence: true
   validates :address, presence: true, length: { maximum: 50 }
-  validates :genre_id, presence: true
 
 
   def favorited_by?(user)
