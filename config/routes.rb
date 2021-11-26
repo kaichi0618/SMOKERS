@@ -15,8 +15,8 @@ Rails.application.routes.draw do
       get :favorites
     end
   end
-  get 'users/confirm' => 'users#confirm'
-  patch 'users/unsubscribe' => 'users#unsubscribe'
+  get '/users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+  patch '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
 
   resources :shops do
     resources :shop_comments, only: [:create, :destroy]
