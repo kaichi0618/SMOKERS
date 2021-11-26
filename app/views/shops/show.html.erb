@@ -13,7 +13,7 @@
           <%= link_to edit_shop_path(@shop.id), class:"btn btn-outline-info" do %>
             <i class="far fa-edit">編集</i>
           <% end %>
-          <%= link_to shop_path(@shop.id), method: :delete, remote: true, class:"btn btn-outline-danger" do %>
+          <%= link_to shop_path(@shop.id), method: :delete, rocal: true, class:"btn btn-outline-danger" do %>
             <i class="fas fa-trash-alt"> 削除</i>
           <% end %>
         </div>
@@ -33,17 +33,17 @@
     <!--いいね&コメントのカウント-->
     <div class="shop_show_responce d-flex justify-content-start mb-4">
       <div id="favorite-btn_<%= @shop.id %>">
-        <%= render partial: 'favorites/favorite-btn', locals: { shop: @shop} %>
+        <%= render 'favorites/favorite-btn', shop: @shop %>
       </div>
       <p class="ml-3"><i class="far fa-comments"></i>コメント<%= @shop.shop_comments.count %></p>
     </div>
 
     <!--コメント一覧&投稿フォーム-->
     <div id="comments_area">
-      <%= render partial: 'shop_comments/index', locals: { shop: @shop } %>
+      <%= render 'shop_comments/index', shop: @shop %>
     </div>
     <div class="my-4">
-      <%= form_with(model:[@shop, @shop_comment], local: true) do |f| %>
+      <%= form_with(model:[@shop, @shop_comment], remote: true) do |f| %>
         <%= f.text_area :comment, rows:'4',placeholder: "コメントをしよう！" %>
         <button type="submit" class="btn btn-outline-primary">
           <i class="far fa-paper-plane">送信</i>

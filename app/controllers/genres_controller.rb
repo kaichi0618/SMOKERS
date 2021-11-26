@@ -9,4 +9,9 @@ class GenresController < ApplicationController
     @genre_bars = @genre_bar.shops
     @genre_izakayas = @genre_izakaya.shops
   end
+
+  def show
+    @genre = Genre.find(params[:id])
+    @genres = @genre.shops
+  end
 end

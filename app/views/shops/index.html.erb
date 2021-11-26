@@ -2,6 +2,7 @@
   <div class="row">
     <div class="shop_index col-md-4">
       <div class="card-list-container py-5">
+        <p class="font-italic text-center">マップをクリックしてみよう!</p>
         <% @shops.each do |shop| %>
         <div class="post mx-auto mt-5">
           <div class="d-flex justify-content-between">
@@ -43,7 +44,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-md-8 px-0">
+    <div class="col-md-8">
       <%= render 'maps/index', maps:@shops %>
     </div>
   </div>

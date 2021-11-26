@@ -1,29 +1,20 @@
 <div class="container-fruid">
   <div class="row">
-    <div class="shop_index col-md-4">
+    <div class="col-4 pr-0">
       <div class="tab-panels">
-        <ul class="tabs">
-          <li rel="panel-4" class="active">喫茶店</li>
-          <li rel="panel-5">カフェ</li>
-          <li rel="panel-6">バー</li>
-          <li rel="panel-7">居酒屋</li>
+        <ul class="tabs mt-4 mx-auto" style="width:87%;">
+          <%= link_to genre_path(Genre.find_by(genre_name: '喫茶店')), remote: true do %><li rel="panel-4" class="active px-3" >喫茶店</li><%end%>
+          <%= link_to genre_path(Genre.find_by(genre_name: 'カフェ')), remote: true do %><li rel="panel-5" class="px-3">カフェ</li><%end%>
+          <%= link_to genre_path(Genre.find_by(genre_name: 'バー')), remote: true do %><li rel="panel-6" class="px-3">バー</li><%end%>
+          <%= link_to genre_path(Genre.find_by(genre_name: '居酒屋')), remote: true do %><li rel="panel-7" class="px-3">居酒屋</li><%end%>
         </ul>
-
-        <div id="panel-4" class="panel active">
-          <%= render "shops/index", shops: @genre_coffees %>
-        </div>
-        <div id="panel-5" class="panel">
-          <%= render "shops/index", shops: @genre_cafes %>
-        </div>
-        <div id="panel-6" class="panel">
-          <%= render "shops/index", shops: @genre_bars %>
-        </div>
-        <div id="panel-7" class="panel">
-          <%= render "shops/index", shops: @genre_izakayas %>
-        </div>
+      </div>
+      <p class="font-italic text-center mt-2 mb-0">マップをクリックしてみよう!</p>
+      <div id="shop_list" class="genre_index">
+        <%= render "shops/index", shops: @genre_coffees %>
       </div>
     </div>
-    <div class="col-md-8 px-0">
+    <div class="col-8 px-0">
       <%= render 'maps/index', maps:@genre_coffees %>
     </div>
   </div>

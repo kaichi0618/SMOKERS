@@ -1,4 +1,4 @@
-<div class="card-list-container py-5">
+<div class="card-list-container py-1">
   <% shops.each do |shop| %>
     <div class="post mx-auto mt-5">
       <div class="d-flex justify-content-between">
@@ -25,7 +25,7 @@
               </p>
               <p class="card-text"> <%= shop.body %></p>
               <span id="favorite-btn_<%= shop.id %>">
-                <%= render partial: 'favorites/favorite-btn', locals: { shop: shop} %>
+                <%= render 'favorites/favorite-btn', shop: shop %>
               </span>
               <span>
                 <%= link_to shop_path(shop.id), class:"text-dark" do %>

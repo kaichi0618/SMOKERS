@@ -1,0 +1,28 @@
+$('#shop_list').html("<%= j(render "shops/index", shops: @genres )%>")
+
+  <% @genres.each_with_index do |m, i| %>
+    function func<%=i%>(){
+    var contentString = "住所：<%= m.address %>";
+
+    var marker = new google.maps.Marker({
+        position:{lat: <%= m.latitude %>, lng: <%= m.longitude %>},
+        map: map,
+        title: contentString
+    });
+    //マーカーをクリックしたとき、詳細情報を表示
+    let infowindow = new google.maps.InfoWindow({
+      position: {lat: <%= m.latitude %>, lng: <%= m.longitude %>},
+      content: "<a href='<%= shop_path(m.id) %>'><%= m.shop_name %></a>"
+    }); //ここで詳細ページへのリンクを表示させる
+    marker.addListener('click', function() {
+      infowindow.open(map, marker);
+    });
+    MarkerArray.push(marker);
+
+    };
+  <% end %>
+  ClearAllIcon();
+  <% @genres.each_with_index do |m, i| %>
+    func<%=i%>();
+  <% end %>
+

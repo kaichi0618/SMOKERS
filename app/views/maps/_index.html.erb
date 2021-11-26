@@ -11,8 +11,9 @@
 </style>
 
 <script>
-var map
-var geocoder
+var map;
+var geocoder;
+var MarkerArray;
 var display = document.getElementById('display')
 
 function initMap(){
@@ -21,6 +22,7 @@ function initMap(){
     center: {lat: 34.7327113, lng:135.4057914},
     zoom: 12,
   });
+  MarkerArray = new google.maps.MVCArray()
 
   marker = new google.maps.Marker({
     position:  {lat: 34.7327113, lng:135.4057914},
@@ -44,9 +46,15 @@ function initMap(){
     marker.addListener('click', function() {
       infowindow.open(map, marker);
     });
+    MarkerArray.push(marker);
+
 
     })();
   <% end %>
+}
+
+function ClearAllIcon() {
+  MarkerArray.forEach(function (marker, idx) { marker.setMap(null); });
 }
 
 function codeAddress(){

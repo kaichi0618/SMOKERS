@@ -16,7 +16,7 @@
         background: #fff;
         margin: 0;
         padding: 5px 40px;
-        color: #FF367F;
+        color: #777777;
         font-weight: 50;
         cursor: pointer;
         border: 1px solid #000;
@@ -25,12 +25,12 @@
 
   .tab-panels ul li:hover {
         color: #fff;
-        background: #FF367F;
+        background: #999999;
               }
 
   .tab-panels ul li.active {
         color: #fff;
-        background: #FF367F;
+        background: #999999;
 
         }
 
@@ -46,6 +46,7 @@
     display:block;
   }
 
-  .tab-panels ul li i {
-    margin: 0 auto;
-  }
+.user_shop_index {
+  width: 50%;
+  margin: 0 auto;
+}

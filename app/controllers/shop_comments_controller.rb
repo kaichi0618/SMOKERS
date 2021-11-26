@@ -7,14 +7,14 @@ class ShopCommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.save
     @shop.create_notification_shop_comment!(current_user, @comment.id)
-    redirect_to shop_path(@shop.id)
+    render :index
   end
 
   def destroy
     @shop = Shop.find(params[:shop_id])
     @comment = ShopComment.find_by(id: params[:id])
     @comment.destroy
-    redirect_to shop_path(@shop.id)
+    render :index
   end
 
   private

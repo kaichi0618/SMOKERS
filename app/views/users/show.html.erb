@@ -39,15 +39,8 @@
     <% end %>
   </ul>
 
-  <div id="panel-1" class="panel active"><%= render 'shops/index', shops:@shops %></div>
-  <div id="panel-2" class="panel"><%= render "shops/index", shops:@favorite_shops %></div>
-  <div id="panel-3" class="panel">
-    <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-    <% if notifications.exists? %>
-      <%= render notifications %>
-    <% else %>
-      <p class="text-center">通知はありません</p>
-    <% end %>
-  </div>
+  <div id="panel-1" class="panel active user_shop_index"><%= render 'shops/index', shops:@shops %></div>
+  <div id="panel-2" class="panel user_shop_index"><%= render "shops/index", shops:@favorite_shops %></div>
+  <div id="panel-3" class="panel" style="justify-content:center;display:flex;"></div>
 </div>
 
