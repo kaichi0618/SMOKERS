@@ -1,5 +1,5 @@
 <% #unchecked_notifications %>
-<!--通知-->
+<!--自分の投稿に関するアクションでは通知しない-->
 <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
 <% if notifications.exists? %>
   $('#panel-3').html("<%= j(render notifications)%>")
