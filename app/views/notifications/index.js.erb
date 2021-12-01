@@ -1,4 +1,5 @@
 <% #unchecked_notifications %>
+<!--通知-->
 <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
 <% if notifications.exists? %>
   $('#panel-3').html("<%= j(render notifications)%>")
