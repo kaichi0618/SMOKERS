@@ -3,10 +3,10 @@
     <div class="col-4 pr-0">
       <div class="tab-panels">
         <ul class="tabs mt-4 mx-auto" style="width:87%;">
-          <%= link_to genre_path(Genre.find_by(genre_name: '喫茶店')), remote: true do %><li rel="panel-4" class="active px-3" >喫茶店</li><%end%>
-          <%= link_to genre_path(Genre.find_by(genre_name: 'カフェ')), remote: true do %><li rel="panel-5" class="px-3">カフェ</li><%end%>
-          <%= link_to genre_path(Genre.find_by(genre_name: 'バー')), remote: true do %><li rel="panel-6" class="px-3">バー</li><%end%>
-          <%= link_to genre_path(Genre.find_by(genre_name: '居酒屋')), remote: true do %><li rel="panel-7" class="px-3">居酒屋</li><%end%>
+          <%= link_to genre_path(@genre_coffee), remote: true do %><li rel="panel-4" class="active px-3" >喫茶店</li><%end%>
+          <%= link_to genre_path(@genre_cafe), remote: true do %><li rel="panel-5" class="px-3">カフェ</li><%end%>
+          <%= link_to genre_path(@genre_bar), remote: true do %><li rel="panel-6" class="px-3">バー</li><%end%>
+          <%= link_to genre_path(@genre_izakaya), remote: true do %><li rel="panel-7" class="px-3">居酒屋</li><%end%>
         </ul>
       </div>
       <p class="font-italic text-center mt-2 mb-0">マップをクリックしてみよう!</p>

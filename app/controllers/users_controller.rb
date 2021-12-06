@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:favorites, :show, :update, :edit]
 
   def show
-    @shops = @user.shops
+    @shops = @user.shops.order(created_at: :desc)
     favorites = Favorite.where(user_id: @user.id).pluck(:shop_id)
     @favorite_shops = Shop.find(favorites)
   end
