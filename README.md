@@ -27,8 +27,10 @@
 コメントから他のユーザーの意見を聞きたいとき。
 
 ## 設計書
-
-ER図・アプリケーション詳細設計記載予定
+### ER図
+https://drive.google.com/file/d/1poQqHc3JsKBAgqU4NPqdFQzTE014F-z5/view?usp=sharing
+### テーブル定義書
+https://docs.google.com/spreadsheets/d/18eFX4vgtI7903IxoyvRCVC8D1KdmzeJXmyHV2Vki_sQ/edit?usp=sharing
 
 ## チャレンジ要素一覧
 
