@@ -1,4 +1,5 @@
 class ShopsController < ApplicationController
+  
   def new
     @shop_new = Shop.new
     @shop = Shop.new

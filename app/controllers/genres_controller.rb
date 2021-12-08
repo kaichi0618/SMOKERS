@@ -1,4 +1,5 @@
 class GenresController < ApplicationController
+  
   def index
     @genre_coffee = Genre.find_by(genre_name:"喫茶店")
     @genre_cafe = Genre.find_by(genre_name:"カフェ")
@@ -14,4 +15,5 @@ class GenresController < ApplicationController
     @genre = Genre.find(params[:id])
     @genres = @genre.shops
   end
+  
 end

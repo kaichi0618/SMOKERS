@@ -22,4 +22,5 @@ class ShopCommentsController < ApplicationController
   def shop_comment_params
     params.require(:shop_comment).permit(:comment)
   end
+  
 end
