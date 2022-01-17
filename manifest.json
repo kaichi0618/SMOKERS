@@ -1,0 +1,18 @@
+{
+  "name"              : "SMOKERS",
+  "short_name"        : "SMOKERS",
+  "description"       : "喫煙できるスポットの共有が行えるSNS",
+  "start_url"         : "https://heavysmokers.net/",
+  "display"           : "standalone",
+  "background_color"  : "#ff0000",
+  "theme_color"       : "#ff0000",
+  "icons": [{
+      "src"           : "/SMOKERS_ICON_192.png",
+      "sizes"         : "192x192",
+      "type"          : "image/png"
+    }, {
+      "src"           : "/SMOKERS_ICON_256.png",
+      "sizes"         : "256x256",
+      "type"          : "image/png"
+  }]
+}
